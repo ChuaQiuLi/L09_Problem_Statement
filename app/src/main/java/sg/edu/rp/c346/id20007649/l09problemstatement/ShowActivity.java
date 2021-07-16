@@ -1,6 +1,7 @@
 package sg.edu.rp.c346.id20007649.l09problemstatement;
 
-import androidx.appcompat.app.AppCompatActivity;
+import
+        androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,9 +30,15 @@ public class ShowActivity extends AppCompatActivity {
         btnFiveStars = findViewById(R.id.btnFiveStars);
         lv = findViewById(R.id.lv);
 
+        DBHelper dbh = new DBHelper(ShowActivity.this);
+        al = dbh.getAllSongs();
+        dbh.close();
+
         al = new ArrayList<Song>();
         aa = new ArrayAdapter<Song>(this, android.R.layout.simple_list_item_1, al);
         lv.setAdapter(aa);
+
+
 
         btnFiveStars.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,17 +53,6 @@ public class ShowActivity extends AppCompatActivity {
         });
 
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Song data = al.get(position);
-                Intent i = new Intent(ShowActivity.this, EditActivity.class);
-                i.putExtra("data", data);
-                startActivity(i);
-
-            }
-        });
 
 
 

@@ -21,7 +21,7 @@
         android:layout_marginTop="10sp"
         android:layout_marginBottom="10sp"
         android:ems="10"
-        android:hint="Enter song title here"
+        android:hint="@string/enter_song_title_here"
         android:inputType="textPersonName" />
 
     <TextView
@@ -38,7 +38,7 @@
         android:layout_marginTop="10sp"
         android:layout_marginBottom="10sp"
         android:ems="10"
-        android:hint="Enter singers' name here"
+        android:hint="@string/enter_singers_name_here"
         android:inputType="textPersonName" />
 
     <TextView
@@ -55,7 +55,7 @@
         android:layout_marginTop="10sp"
         android:layout_marginBottom="10sp"
         android:ems="10"
-        android:hint="Enter year of release here"
+        android:hint="@string/enter_year_of_release_here"
         android:inputType="textPersonName" />
 
     <TextView

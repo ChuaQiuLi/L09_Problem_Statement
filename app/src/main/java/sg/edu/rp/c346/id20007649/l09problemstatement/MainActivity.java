@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 int stars = getStars();
 
 
-
                 DBHelper dbh = new DBHelper(MainActivity.this);
                 long result = dbh.insertSong(songTitle,singer,years,stars);
                 dbh.close();
