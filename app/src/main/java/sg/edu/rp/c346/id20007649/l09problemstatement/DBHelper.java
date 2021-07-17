@@ -77,7 +77,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 String singers = cursor.getString(2);
                 int year = cursor.getInt(3);
                 int stars = cursor.getInt(4);
-                Song song = new Song(title, singers, year, stars );
+                Song song = new Song(id,title, singers, year, stars );
                 songs.add(song);
             }
 
@@ -108,17 +108,43 @@ public class DBHelper extends SQLiteOpenHelper {
                 String singers = cursor.getString(2);
                 int year = cursor.getInt(3);
                 int stars = cursor.getInt(4);
-                Song newSong = new Song(title, singers, year, stars );
+                Song newSong = new Song(id, title, singers, year, stars );
                 songs.add(newSong);
 
             }
 
             while (cursor.moveToNext());
 
-
         }
+
         cursor.close();
         db.close();
         return songs;
     }
+
+    public int updateNote(Song data){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_SONG_TITLE, data.getTitle());
+        values.put(COLUMN_SONG_SINGERS, data.getSingers());
+        values.put(COLUMN_SONG_YEAR, data.getYear());
+        values.put(COLUMN_SONG_STARS, data.getStars());
+        String condition = COLUMN_ID + "= ?";
+        String[] args = {String.valueOf(data.getId())};
+        int result = db.update(TABLE_SONG, values, condition, args);
+        db.close();
+        return result;
+
+    }
+
+    public int deleteNote(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String condition = COLUMN_ID + "= ?";
+        String[] args = {String.valueOf(id)};
+        int result = db.delete(TABLE_SONG, condition, args);
+        db.close();
+        return result;
+
+    }
+
 }

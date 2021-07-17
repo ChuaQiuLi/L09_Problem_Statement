@@ -15,5 +15,8 @@
     <string name="enter_song_title_here">Enter song title here</string>
     <string name="enter_singers_name_here">Enter singers\' name here</string>
     <string name="enter_year_of_release_here">Enter year of release here</string>
+    <string name="cancel">cancel</string>
+    <string name="update">update</string>
+    <string name="delete">delete</string>
 
 </resources>

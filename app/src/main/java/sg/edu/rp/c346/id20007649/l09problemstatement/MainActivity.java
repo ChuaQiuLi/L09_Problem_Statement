@@ -5,14 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,16 +27,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
-        etSongTitle = findViewById(R.id.etSingers);
-        etSingers = findViewById(R.id.etSingers);
-        etYears = findViewById(R.id.etYear);
+        etSingers = findViewById(R.id.etNewSingers);
+        etSongTitle = findViewById(R.id.etNewSongTitle);
+        etYears = findViewById(R.id.etNewYear);
         btnInsert = findViewById(R.id.btnInsert);
         btnShowList = findViewById(R.id.btnShowList);
-        rbStars = findViewById(R.id.rbStars);
-
-
-
+        rbStars = findViewById(R.id.rbNewStars);
 
 
         btnInsert.setOnClickListener(new View.OnClickListener() {
@@ -50,34 +42,42 @@ public class MainActivity extends AppCompatActivity {
                 String songTitle = etSongTitle.getText().toString();
                 String singer = etSingers.getText().toString();
                 String year = etYears.getText().toString().trim();
-                int years = Integer.valueOf(year);
+                int years = Integer.parseInt(year);
                 int stars = getStars();
 
 
                 DBHelper dbh = new DBHelper(MainActivity.this);
-                long result = dbh.insertSong(songTitle,singer,years,stars);
-                dbh.close();
-                Toast.makeText(MainActivity.this,"Song Inserted",Toast.LENGTH_LONG);
+                long result = dbh.insertSong(songTitle, singer, years, stars);
+
+                if (result != -1) {
+                    Toast.makeText(MainActivity.this, "Song Inserted", Toast.LENGTH_LONG).show();
+
+                }
 
                 etSongTitle.setText("");
                 etSingers.setText("");
                 etYears.setText("");
 
             }
+
+
         });
+
+
 
         btnShowList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this,ShowActivity.class);
-
+                Intent intent = new Intent(MainActivity.this, ShowActivity.class);
                 startActivity(intent);
 
             }
         });
 
+
     }
+
 
     private int getStars(){
         int stars = 1;
@@ -108,6 +108,4 @@ public class MainActivity extends AppCompatActivity {
 
         return stars;
     }
-
-
 }

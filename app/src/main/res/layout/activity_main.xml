@@ -8,14 +8,14 @@
 
 
     <TextView
-        android:id="@+id/tvSongTitle"
+        android:id="@+id/tvNewSongTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/song_title"
         android:textColor="#000000" />
 
     <EditText
-        android:id="@+id/etSongTitle"
+        android:id="@+id/etNewSongTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10sp"
@@ -25,14 +25,14 @@
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/tvSingers"
+        android:id="@+id/tvNewSingers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/singers"
         android:textColor="#000000" />
 
     <EditText
-        android:id="@+id/etSingers"
+        android:id="@+id/etNewSingers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10sp"
@@ -42,14 +42,14 @@
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/tvYear"
+        android:id="@+id/tvNewYear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/year"
         android:textColor="#000000" />
 
     <EditText
-        android:id="@+id/etYear"
+        android:id="@+id/etNewYear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10sp"
@@ -59,7 +59,7 @@
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/tvStars"
+        android:id="@+id/tvNewStars"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/stars"
@@ -71,7 +71,7 @@
         android:orientation="horizontal">
 
         <RadioGroup
-            android:id="@+id/rbStars"
+            android:id="@+id/rbNewStars"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -120,7 +120,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
